@@ -19,7 +19,7 @@ module.exports = {
   plugins: ['react', 'prettier', 'react-hooks'],
   rules: {
     'prettier/prettier': 'error',
-    'react/jsx-filename-extensio': [
+    'react/jsx-filename-extension': [
       'warn',
       {
         extensions: ['.jsx', '.js'],
@@ -29,6 +29,6 @@ module.exports = {
     'no-param-reassign': 'off',
     'no-console': ['error', { allow: ['tron'] }],
     'react-hooks/rules-of-hooks': 'error',
-    'react-hooks/exaustive-deps': 'warn',
+    'react-hooks/exhaustive-deps': 'warn',
   },
 };
