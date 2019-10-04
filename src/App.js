@@ -1,13 +1,13 @@
-import React, { useState, useEffect, useMemo } from 'react';
+import React, { useState, useEffect, useMemo, useCallback } from 'react';
 
 function App() {
   const [tech, setTech] = useState([]);
   const [newTech, setNewtech] = useState('');
 
-  function handleAdd() {
+  const handleAdd = useCallback(() => {
     setTech([...tech, newTech]);
     setNewtech('');
-  }
+  }, [newTech, tech]);
   // same use of component did mount
   useEffect(() => {
     const storageTech = localStorage.getItem('tech');
@@ -16,7 +16,7 @@ function App() {
       setTech(JSON.parse(storageTech));
     }
   }, []);
-
+  // same use of component did update
   useEffect(() => {
     localStorage.setItem('tech', JSON.stringify(tech));
   }, [tech]);
